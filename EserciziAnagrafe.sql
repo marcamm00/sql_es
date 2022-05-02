@@ -11,5 +11,9 @@ select distinct p.CittàNascita
 from persona p join genia on p.Nome = genia.Genitore
 where p.Età >= 50
 --4
+/*
 select distinct n.Nome
 from persona n join genia a on n.Nome = a.Genitore join genia b on a.Figlio = b.Genitore
+*/
+select distinct a.Genitore
+from genia a join genia b on a.Figlio = b.Genitore
