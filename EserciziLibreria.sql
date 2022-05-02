@@ -79,5 +79,5 @@ where romanzo.ID = personaggioromanzo.romanzo and personaggio.ID = personaggioro
 and (personaggio.nome = 'Benjiamin' and personaggio.cognome = 'Malaussène')
 --20
 select romanzo.*
-from romanzo, autore
-where romanzo.Autore is null
+from romanzo left join autore on romanzo.Autore = autore.ID
+where autore.ID is null
