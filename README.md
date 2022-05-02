@@ -1,2 +1,3 @@
 # sql_es
-Sql database 
+ 
+Esercizi svolti nell'ambito del corso Generation **da Pino**
