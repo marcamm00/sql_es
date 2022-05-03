@@ -26,3 +26,7 @@ select p.CittàNascita, count(distinct p.Nome)
 from persona p join genia on p.Nome = genia.Genitore
 where p.Sesso = "F"
 group by p.CittàNascita
+--7
+select città.Regione, count(p.Nome)/count(distinct città.Nome)
+from persona p join città on p.CittàNascita = città.Nome
+group by città.Regione
