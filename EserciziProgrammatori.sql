@@ -27,3 +27,6 @@ from programmatore p join autore on p.codice = autore.codice
     join programma on autore.id = programma.id
 group by p.codice, programma.anno
 --7
+select programma.linguaggio, count(autore.codice)/count(distinct programma.id)
+from programma join autore on programma.id = autore.id
+group by programma.linguaggio
