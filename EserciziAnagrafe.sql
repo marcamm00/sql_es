@@ -21,3 +21,8 @@ from genia a join genia b on a.Figlio = b.Genitore
 select count(*)
 from persona join città on persona.CittàNascita = città.Nome
 where persona.Sesso = 'M' and città.Regione = 'Lazio'
+--6
+select p.CittàNascita, count(distinct p.Nome)
+from persona p join genia on p.Nome = genia.Genitore
+where p.Sesso = "F"
+group by p.CittàNascita
