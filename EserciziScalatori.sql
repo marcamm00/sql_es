@@ -25,4 +25,9 @@ select distinct s.CF, s.nazioneNascita, nazione.continente
 from scalatore s join nazione on s.nazioneNascita = nazione.nome
     join scalata on s.CF = scalata.scalatore
 where nazione.continente != "America" 
-
+--7
+select scalata.nazione, scalata.anno, count(*) as scalate
+from scalata join nazione on scalata.nazione = nazione.nome
+group by scalata.nazione, scalata.anno
+having count(*)>1
+order by nazione.continente, scalata.anno
