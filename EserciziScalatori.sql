@@ -31,3 +31,9 @@ from scalata join nazione on scalata.nazione = nazione.nome
 group by scalata.nazione, scalata.anno
 having count(*)>1
 order by nazione.continente, scalata.anno
+--8
+select scalata.nazione, count(scalata.scalatore)/count(distinct scalata.anno)
+from scalata join scalatore on scalata.scalatore = scalatore.CF
+where scalata.nazione != scalatore.nazioneNascita
+group by scalata.nazione
+
