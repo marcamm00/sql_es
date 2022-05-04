@@ -18,3 +18,11 @@ select sc.nazione, count(sc.anno)
 from scalata sc join scalatore on sc.scalatore = scalatore.CF
 where sc.nazione = scalatore.nazioneNascita
 group by sc.nazione
+--5
+
+--6
+select distinct s.CF, s.nazioneNascita, nazione.continente
+from scalatore s join nazione on s.nazioneNascita = nazione.nome
+    join scalata on s.CF = scalata.scalatore
+where nazione.continente != "America" 
+
