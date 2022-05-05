@@ -22,11 +22,11 @@ from autore a1 join programma on a1.id = programma.id
 where programma.linguaggio = "Python" and a1.codice != a2.codice and a2.codice < a1.codice
 --5
 select p.codice, p.nome
-from programmatore p
-where p.codice in (
+from programmatore p join autore on p.codice = autore.codice
+where autore.codice not in (
     select autore.codice
     from autore
-    where autore.id not in(
+    where autore.id in(
         select programma.id
         from programma
         where programma.linguaggio != "Java"
