@@ -37,7 +37,7 @@ from scalata join scalatore on scalata.scalatore = scalatore.CF
 where scalata.nazione != scalatore.nazioneNascita
 group by scalata.nazione
 --9
-select s.CF
+select distinct s.CF
 from scalatore as s join scalata on s.CF = scalata.scalatore
 where s.CF not in(
     select s.CF
