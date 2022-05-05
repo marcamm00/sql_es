@@ -39,10 +39,9 @@ group by scalata.nazione
 --9
 select s.CF
 from scalatore as s join scalata on s.CF = scalata.scalatore
-where s.nazioneNascita = scalata.nazione and s.CF not in (
+where s.CF not in(
     select s.CF
     from scalatore s join scalata on s.CF = scalata.scalatore
-    where (scalata.anno-s.annoNascita)>=18
-    )
-
+    where s.nazioneNascita = scalata.nazione and scalata.anno-s.annoNascita>=18
+)
 
