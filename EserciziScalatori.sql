@@ -36,4 +36,13 @@ select scalata.nazione, count(scalata.scalatore)/count(distinct scalata.anno)
 from scalata join scalatore on scalata.scalatore = scalatore.CF
 where scalata.nazione != scalatore.nazioneNascita
 group by scalata.nazione
+--9
+select s.CF
+from scalatore as s join scalata on s.CF = scalata.scalatore
+where s.nazioneNascita = scalata.nazione and s.CF not in (
+    select s.CF
+    from scalatore s join scalata on s.CF = scalata.scalatore
+    where (scalata.anno-s.annoNascita)>=18
+    )
+
 
